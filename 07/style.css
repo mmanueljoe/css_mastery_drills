@@ -1,0 +1,52 @@
+/* 07 — Nested Flex Navbar */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0b1020;
+  color: #e2e8f0;
+}
+
+.nav {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.15);
+
+  /* TODO:
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+  */
+}
+
+.nav__logo {
+  display: block;
+}
+
+.nav__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  /* TODO:
+     display: flex;
+     gap: 16px; (or similar)
+     align-items: center;
+  */
+}
+
+.nav__links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 650;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.nav__links a:hover {
+  background: rgba(226, 232, 240, 0.12);
+}
+
+.page {
+  padding: 28px 18px;
+}
+

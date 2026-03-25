@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>02 — Box Sizing Predictability</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <h1>Box-Sizing: Predictability</h1>
+      <p>
+        Both boxes are set to <code>width: 500px</code>. Box B has
+        <code>padding: 50px</code>. Make them visually identical.
+      </p>
+
+      <div class="row">
+        <div class="box box--a">
+          <strong>Box A</strong>
+          <div>width: 500px</div>
+          <div>padding: 0</div>
+        </div>
+        <div class="box box--b">
+          <strong>Box B</strong>
+          <div>width: 500px</div>
+          <div>padding: 50px</div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+

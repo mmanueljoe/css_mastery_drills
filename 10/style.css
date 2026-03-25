@@ -1,0 +1,41 @@
+/* 10 — Shadows and State */
+
+body {
+  margin: 40px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0b1020;
+  color: #e2e8f0;
+}
+
+.page {
+  width: min(900px, 96vw);
+  margin: 0 auto;
+}
+
+.card {
+  margin-top: 18px;
+  padding: 18px 18px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+
+  /* TODO: transition: 0.3s ease; */
+}
+
+.card:hover {
+  /* TODO:
+     box-shadow: ... (stronger)
+     transform: translateY(-6px);
+  */
+}
+
+.card h2 {
+  margin: 0 0 6px 0;
+}
+
+.card p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.8);
+}
+

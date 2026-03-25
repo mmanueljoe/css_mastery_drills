@@ -1,0 +1,30 @@
+:root {
+  /* Colors */
+  --sky: #38bdf8; /* Sky Blue */
+  --lavender: #a78bfa; /* Lavender */
+  --pumpkin: #f97316; /* Pumpkin */
+  --slate-950: #020617; /* Slate (dark) */
+  --slate-900: #0f172a;
+  --slate-700: #334155;
+  --slate-200: #e2e8f0;
+  --slate-50: #f8fafc;
+  --white: #ffffff;
+
+  /* Typography (use after Phase 2: html { font-size: 62.5%; }) */
+  --font-sans: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+
+  /* Type Scale */
+  --fs-900: 6.2rem; /* Hero title */
+  --fs-800: 4.0rem; /* Section titles */
+  --fs-700: 2.8rem; /* Card titles */
+  --fs-600: 2.0rem; /* Body large */
+  --fs-500: 1.6rem; /* Body */
+  --fs-400: 1.4rem; /* Small */
+
+  /* Line heights */
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+}
+

@@ -1,0 +1,25 @@
+/* 01 — Specificity Sports Table */
+
+/* A tiny bit of baseline so the demo looks readable */
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 40px;
+  line-height: 1.5;
+}
+
+.hint {
+  max-width: 65ch;
+  color: #333;
+}
+
+/* TODO: Write the 3 specificity rules below. */
+
+/* 1) Type selector (lowest priority) */
+/* h1 { color: ... } */
+
+/* 2) Class selector (should win vs type) */
+/* .title { color: green; } */
+
+/* 3) ID selector (highest priority) — keep this commented at first */
+/* #title { color: red; } */
+
