@@ -10,15 +10,9 @@ body {
 
 .container {
   padding: 40px 0;
-
-  /* Intentionally wrong: this will overflow on smaller screens */
-  width: 1200px;
-
-  /* TODO:
-     - width: 90%;
-     - max-width: 1200px;
-     - margin: 0 auto;
-  */
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .container > * {
