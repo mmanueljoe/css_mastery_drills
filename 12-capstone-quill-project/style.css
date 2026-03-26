@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*
+  Professional workflow note:
+  - Load web fonts via <link> in the HTML <head> (see starter.html).
+  - Avoid CSS @import for fonts because it typically delays fetching.
+*/
 
 :root {
   /* Colors */
@@ -16,11 +20,15 @@
   --font-sans: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
     sans-serif;
 
-  /* Type Scale */
-  --fs-900: 6.2rem; /* Hero title */
-  --fs-800: 4.0rem; /* Section titles */
-  --fs-700: 2.8rem; /* Card titles */
-  --fs-600: 2.0rem; /* Body large */
+  /*
+    Responsive type scale (tokens):
+    - These are "intent" sizes (hero, section title, etc.), not "device" sizes.
+    - clamp(min, fluid, max) gives you smooth scaling without many breakpoints.
+  */
+  --fs-900: clamp(3.6rem, 4.6vw + 1rem, 6.2rem); /* Hero title */
+  --fs-800: clamp(2.6rem, 2.8vw + 1rem, 4rem); /* Section titles */
+  --fs-700: clamp(2rem, 1.6vw + 1rem, 2.8rem); /* Card titles */
+  --fs-600: clamp(1.8rem, 0.6vw + 1.6rem, 2rem); /* Body large */
   --fs-500: 1.6rem; /* Body */
   --fs-400: 1.4rem; /* Small */
 
@@ -31,6 +39,17 @@
 
   /* nav */
   --nav-height: 6rem;
+
+  /* Readability: comfortable line-length for paragraphs */
+  --measure: 60ch;
+
+  /* Responsive spacing helpers (used for big vertical rhythm) */
+  --space-section: clamp(4rem, 6vw, 8rem);
+  --space-cta: clamp(5rem, 8vw, 10rem);
+  --space-card: clamp(2rem, 4vw, 5rem);
+
+  /* Small elevation token for hover polish */
+  --shadow-sm: 0 10px 25px rgba(2, 6, 23, 0.1);
 }
 
 
@@ -46,15 +65,27 @@ html{
 }
 
 body{
+  /*
+    Global typography defaults live here:
+    - Components should inherit most text styles.
+    - Only override per-component when you truly need a different look.
+  */
   font-family: var(--font-sans);
   line-height: var(--lh-normal);
-  color: var(--slate-950);
+  color: var(--slate-900);
   font-size: var(--fs-500);
+  background: var(--slate-50);
 }
 
+/* Sensible defaults for media/content (even if this project has no images yet) */
+img{
+  max-width: 100%;
+  display: block;
+}
 
 h1, h2, h3, h4{
   line-height: var(--lh-tight);
+  color: var(--slate-950);
 }
 
 h1{
@@ -86,6 +117,7 @@ h3{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.6rem;
 }
 
 .brand{
@@ -100,43 +132,67 @@ h3{
   gap: 2rem;
 }
 
-.nav__links .nav__link{
+.nav__link{
   text-decoration: none;
   color: var(--slate-700);
   font-size: var(--fs-400);
 }
 
+.nav__link:hover{
+  color: var(--slate-950);
+}
+
+.nav__link:focus-visible{
+  outline: 3px solid var(--sky);
+  outline-offset: 3px;
+  border-radius: 0.6rem;
+}
+
 
 /* --------- HERO STYLES ---------*/
 .hero{
-  height: calc(100vh - var(--nav-height));
+  /*
+    Use min-height for text-heavy sections:
+    - height is a hard ceiling and can cause overflow when text wraps.
+    - min-height keeps the "above the fold" feel but still allows growth.
+  */
+  min-height: calc(100vh - var(--nav-height));
   display: flex;
+  padding-block: var(--space-section);
 }
 
 .hero__inner{
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.hero__title, .highlight{
+  align-items: center;
   text-align: center;
+  gap: 1.2rem;
 }
 
 .highlight{
+  /*
+    Component mindset:
+    This should still look like a "highlight" even if you move it elsewhere.
+  */
   font-size: var(--fs-400);
-  color: var(--slate-700);
-
-  font-weight: 500;
+  color: var(--slate-900);
+  background-color: var(--slate-200);
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
 }
 
 .hero__subtitle{
-  text-align: center;
+  max-width: var(--measure);
+  color: var(--slate-700);
+  font-size: var(--fs-400);
 }
 
 .hero__actions{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 1rem 0;
   gap: 1rem;
 }
@@ -144,6 +200,7 @@ h3{
 .hero__meta{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -155,11 +212,13 @@ h3{
   border-radius: 3rem;
   font-size: var(--fs-400);
   margin: 2rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* --------- FEATURES STYLES ---------*/
 .features{
-  padding: 5rem 0;
+  padding: var(--space-section) 0;
 }
 
 .features__inner{
@@ -172,9 +231,21 @@ h3{
   text-align: center;
 }
 
+
+.section-header__subtitle{
+  max-width: var(--measure);
+  margin-inline: auto;
+  color: var(--slate-700);
+  font-size: var(--fs-400);
+}
+
 .feature-grid{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /*
+    Responsive grid without breakpoints:
+    - Cards will wrap when they can no longer fit at the minimum width.
+  */
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   padding: 4rem 1rem;
   gap: 1rem;
 }
@@ -183,12 +254,19 @@ h3{
   padding: 1rem;
   border: 1px solid var(--slate-200);
   border-radius: 5px;
+  background: var(--white);
+}
+
+.feature__desc{
+  color: var(--slate-700);
+  margin-top: 0.8rem;
+  font-size: var(--fs-400);
 }
 
 
 /* --------- CTA STYLES ---------*/
 .cta{
-  padding: 10rem 0;
+  padding: var(--space-cta) 0;
 }
 
 .cta__inner{
@@ -201,7 +279,7 @@ h3{
   max-width: 900px;
   width: 90%;
   background-color: var(--slate-200);
-  padding: 5rem;
+  padding: var(--space-card);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -212,25 +290,37 @@ h3{
   text-align: center;
 }
 
+.cta-card__desc{
+  max-width: var(--measure);
+  margin-inline: auto;
+  color: var(--slate-700);
+  font-size: var(--fs-400);
+}
+
 .cta-card__actions{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 /* --------- FOOTER STYLES ---------*/
 .footer{
-  padding: 5rem 0;
+  padding: var(--space-section) 0;
 }
 
 .footer__inner{
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.4rem;
+  flex-wrap: wrap;
 }
 
 .footer__brand p{
   font-size: var(--fs-400);
   color: var(--slate-700);
+  max-width: 45ch;
 }
 
 .footer__links{
@@ -249,11 +339,19 @@ h3{
 
 /* --------- COMPONENT STYLES ---------*/
 .btn{
+  /*
+    Button component best practice:
+    - Base class defines structure + accessibility-friendly defaults.
+    - Variants only change colors/borders (not layout).
+  */
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
   padding: 1rem 2rem;
   border-radius: 0.8rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease, color 150ms ease, border-color 150ms ease;
 }
 
 .btn--primary{
@@ -268,5 +366,54 @@ h3{
 
 .btn--outline{
   color: var(--slate-950);
-  border: 1px solid var(--slate-700);
+  border-color: var(--slate-700);
+  background: transparent;
+}
+
+/* Button interaction states (this is where UIs start to feel "real") */
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active{
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn:focus-visible{
+  outline: 3px solid var(--lavender);
+  outline-offset: 3px;
+}
+
+.btn--primary:hover,
+.btn--secondary:hover{
+  filter: brightness(0.95);
+}
+
+.btn--outline:hover{
+  background-color: var(--slate-200);
+}
+
+/* --------- RESPONSIVE TWEAKS (minimal, because tokens do most of the work) ---------*/
+@media (max-width: 48em){
+  /* 48em ≈ 768px. Using em keeps breakpoints more resilient to user font-size changes. */
+  .nav{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav__links{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer__inner{
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer__links{
+    align-items: center;
+  }
 }

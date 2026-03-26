@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quill — Landing Page (Capstone)</title>
 
+    <!--
+      Professional font loading workflow:
+      - Prefer <link> over CSS @import so the browser can fetch the font earlier.
+      - preconnect helps speed up the initial TLS handshake.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -45,18 +57,18 @@
               <div class="stat">
                 <div class="stat__value">2 min</div>
                 <div class="stat__label">to publish</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">0</div>
-              <div class="stat__label">design debt</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">1</div>
-              <div class="stat__label">clean system</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">0</div>
+                <div class="stat__label">design debt</div>
+              </div>
+              <div class="stat">
+                <div class="stat__value">1</div>
+                <div class="stat__label">clean system</div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       <!-- FEATURES -->
       <section id="features" class="features" aria-label="Features">
