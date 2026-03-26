@@ -15,11 +15,11 @@ body {
 /* TODO: Write the 3 specificity rules below. */
 
 /* 1) Type selector (lowest priority) */
-/* h1 { color: ... } */
+h1 { color: blue; }
 
 /* 2) Class selector (should win vs type) */
-/* .title { color: green; } */
+.title { color: green; }
 
 /* 3) ID selector (highest priority) — keep this commented at first */
-/* #title { color: red; } */
+#title { color: red; }
 
