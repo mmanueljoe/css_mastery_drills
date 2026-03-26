@@ -14,12 +14,9 @@ body {
 
 .gallery {
   margin-top: 18px;
-
-  /* TODO:
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     gap: 12px;
-  */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
 
 .tile {
@@ -34,7 +31,7 @@ body {
 
 .tile--1 {
   background: linear-gradient(135deg, #4f46e5, #22c55e);
-  /* TODO: grid-column: span 2; */
+  grid-column: span 2;
 }
 
 .tile--2 {
