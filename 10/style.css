@@ -19,15 +19,12 @@ body {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(226, 232, 240, 0.12);
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
-
-  /* TODO: transition: 0.3s ease; */
+  transition: 0.3s ease;
 }
 
 .card:hover {
-  /* TODO:
-     box-shadow: ... (stronger)
-     transform: translateY(-6px);
-  */
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+  transform: translateY(-6px);
 }
 
 .card h2 {
