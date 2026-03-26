@@ -1,9 +1,10 @@
-/* 02 — Box Sizing Predictability */
+ /* 02 — Box Sizing Predictability */
 
 /* TODO: Add the universal reset here.
-   Expected:
-   * { box-sizing: border-box; }
 */
+*{
+  box-sizing: border-box;
+}
 
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
