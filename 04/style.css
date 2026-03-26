@@ -1,7 +1,10 @@
 /* 04 — The REM Trick */
 
 /* TODO (Step 1): Set the root font-size so 1rem ≈ 10px */
-/* html { font-size: 62.5%; } */
+
+html{
+  font-size: 62.5%;
+}
 
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -17,12 +20,12 @@ body {
 
 /* TODO (Step 2): Type scale using only rem units */
 h1 {
-  /* font-size: 6.2rem; */
+  font-size: 6.2rem;
   letter-spacing: -0.02em;
 }
 
 p {
-  /* font-size: 2rem; */
+  font-size: 2rem;
   color: #374151;
 }
 
