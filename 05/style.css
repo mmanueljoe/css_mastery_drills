@@ -1,7 +1,9 @@
 /* 05 — Dynamic Calc Hero */
 
 /* TODO: Define the navbar height variable here */
-/* :root { --nav-height: 72px; } */
+:root{
+  --nav-height: 72px;
+}
 
 body {
   margin: 0;
@@ -12,7 +14,7 @@ body {
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
-  height: 72px; /* TODO: use var(--nav-height) */
+  height: var(--nav-height); /* TODO: use var(--nav-height) */
   background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid rgba(15, 23, 42, 0.12);
   backdrop-filter: blur(10px);
@@ -36,9 +38,9 @@ body {
 
 .hero {
   /* Push content below the fixed navbar (kept explicit for clarity) */
-  padding-top: 72px; /* Optional: update to var(--nav-height) after you create the variable */
+  padding-top: var(--nav-height); /* Optional: update to var(--nav-height) after you create the variable */
 
-  height: 100vh; /* TODO: calc(100vh - var(--nav-height)) */
+  height: calc(100vh - var(--nav-height)); /* TODO: calc(100vh - var(--nav-height)) */
   background: radial-gradient(1000px 500px at 20% 10%, #c7d2fe, transparent 60%),
     radial-gradient(900px 600px at 80% 0%, #fecaca, transparent 55%),
     #f8fafc;
