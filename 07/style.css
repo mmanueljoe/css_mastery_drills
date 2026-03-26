@@ -10,12 +10,9 @@ body {
 .nav {
   padding: 16px 18px;
   border-bottom: 1px solid rgba(226, 232, 240, 0.15);
-
-  /* TODO:
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-  */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav__logo {
@@ -26,12 +23,9 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-
-  /* TODO:
-     display: flex;
-     gap: 16px; (or similar)
-     align-items: center;
-  */
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 .nav__links a {
